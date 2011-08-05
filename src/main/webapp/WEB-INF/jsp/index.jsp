@@ -1,19 +1,59 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
-
+<!DOCTYPE HTML>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome to Spring Web MVC project</title>
-    </head>
+        <link rel="stylesheet" type="text/css" href="css/fc_basic.css" />
 
+        <title>Flashcard Application</title>
+
+    </head>
     <body>
-        <p>Hello! This is the default welcome page for a Spring Web MVC project.</p>
-        <p><i>To display a different welcome page for this project, modify</i>
-            <tt>index.jsp</tt> <i>, or create your own welcome page then change
-                the redirection in</i> <tt>redirect.jsp</tt> <i>to point to the new
-                welcome page and also update the welcome-file setting in</i>
-            <tt>web.xml</tt>.</p>
+        <header>
+                <h1>Flashcard Application</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <div id="mainContent">
+                <section>
+                    Welcome to Flashcard Application designed and developed to ease studying.<br /> The hardest thing in the world! ...
+                </section>
+            </div>
+            <aside>
+                <section id="loginForm">
+                    <form action="login.do" method="get">
+                        <table>
+                            <tr>
+                                <td>E-mail: </td>
+                                <td><input type="email" name="user_email" size="25" required placeholder="Use only valid email" /></td>
+                            </tr>
+                            <tr>
+                                <td>Password: </td>
+                                <td><input type="password" name="username" id="username" size="25" required placeholder="Password"/></td>
+                            </tr>
+                        </table>
+
+                        <p><input type="submit" name="submit" id="submit" value="Login"/>
+                            <input type="reset" name="reset" id="reset" value="Reset"/>
+                        </p>
+                    </form>
+                </section>
+            </aside>
+        </div>
+
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <p>All rights reserved</p></footer>
     </body>
 </html>
