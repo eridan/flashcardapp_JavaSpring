@@ -1,0 +1,81 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.greenland.fc_controller;
+
+import com.greenland.flashcards.model.User;
+import junit.framework.Assert;
+import com.greenland.flashcards.controller.LoginController;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.springframework.web.servlet.ModelAndView;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author jurijspe
+ */
+public class LoginControllerTest {
+    
+//    Mockery context = new JUnit4Mockery();
+    private LoginController controller = new LoginController();
+    private static MockHttpServletRequest request;
+    private static MockHttpServletResponse response;
+    private User user;
+
+    
+    public LoginControllerTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+        request = new MockHttpServletRequest();
+        response = new MockHttpServletResponse();
+        User user = new User();
+        user.setUserName("testEmail");
+        user.setPassword("12345678");
+
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+    
+    @Test
+    public void HomePage() throws Exception
+    {
+        request.setMethod("GET");
+        request.addParameter("email", "testEmail");
+        request.addParameter("password", "12345678");
+        controller.setUser(user);
+        ModelAndView mav = controller.handleRequest(request, response);
+        Assert.assertEquals("home.jsp", mav.getViewName());
+        User controllerUser = new User();
+        controllerUser = (User)mav.getModel().get("user");
+        Assert.assertNotNull(controllerUser);
+        Assert.assertEquals("testEmail", controllerUser.getUserName());
+        Assert.assertEquals("12345678", controllerUser.getPassword());
+    }
+
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
+    
+    
+}
