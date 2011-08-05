@@ -19,9 +19,12 @@
         <property name="mappings">
             <props>
                 <prop key="index.do">indexController</prop>
+                <prop key="login.do">loginController</prop>
             </props>
         </property>
     </bean>
+    
+    <bean id="loginController" class="com.greenland.flashcards.controller.LoginController" />
     
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"

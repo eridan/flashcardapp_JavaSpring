@@ -30,11 +30,11 @@
                         <table>
                             <tr>
                                 <td>E-mail: </td>
-                                <td><input type="email" name="user_email" size="25" required placeholder="Use only valid email" /></td>
+                                <td><input type="email" name="email" size="25" required placeholder="Use only valid email" /></td>
                             </tr>
                             <tr>
                                 <td>Password: </td>
-                                <td><input type="password" name="username" id="username" size="25" required placeholder="Password"/></td>
+                                <td><input type="password" name="password" size="25" required placeholder="Password"/></td>
                             </tr>
                         </table>
 

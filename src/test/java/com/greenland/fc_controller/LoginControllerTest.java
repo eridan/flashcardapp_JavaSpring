@@ -35,11 +35,6 @@ public class LoginControllerTest {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        request = new MockHttpServletRequest();
-        response = new MockHttpServletResponse();
-        User user = new User();
-        user.setUserName("testEmail");
-        user.setPassword("12345678");
 
     }
 
@@ -49,6 +44,11 @@ public class LoginControllerTest {
     
     @Before
     public void setUp() {
+        request = new MockHttpServletRequest();
+        response = new MockHttpServletResponse();
+        user = new User();
+        user.setUserName("testEmail");
+        user.setPassword("12345678");
     }
     
     @After
@@ -63,19 +63,13 @@ public class LoginControllerTest {
         request.addParameter("password", "12345678");
         controller.setUser(user);
         ModelAndView mav = controller.handleRequest(request, response);
-        Assert.assertEquals("home.jsp", mav.getViewName());
-        User controllerUser = new User();
-        controllerUser = (User)mav.getModel().get("user");
+        Assert.assertEquals("home", mav.getViewName());
+        Assert.assertNotNull(mav.getModel());
+        User controllerUser = (User)mav.getModel().get("user");
         Assert.assertNotNull(controllerUser);
         Assert.assertEquals("testEmail", controllerUser.getUserName());
         Assert.assertEquals("12345678", controllerUser.getPassword());
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     
     
 }

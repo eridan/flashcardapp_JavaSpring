@@ -36,11 +36,11 @@ public class LoginController implements Controller{
         String name = request.getParameter("email");
         String password = request.getParameter("password");
         
-        if (name.equals("John") && password.equals("12345678")) {
+        if (name.equals("John@mail.ru") && password.equals("12345678")) {
             user.setUserName("John Travolta");
         }
         
-        return new ModelAndView("home.jsp", "user", user);
+        return new ModelAndView("home", "user", user);
     }
     
 }
